@@ -1,13 +1,11 @@
-import {Button, IconButton, TextField} from '@material-ui/core';
+import {IconButton, TextField} from '@material-ui/core';
 import React, {useState, KeyboardEvent, ChangeEvent} from 'react';
 import {ControlPoint} from "@material-ui/icons";
-
 
 type AddItemFormType = {
     addItem: (title: string) => void
 }
-
-export const AddItemForm = (props: AddItemFormType) => {
+export const AddItemForm = React.memo((props: AddItemFormType) => {
     const [title, setTitle] = useState<string>("")
     const [error, setError] = useState<boolean>(false)
     const addItem = () => {
@@ -51,4 +49,4 @@ export const AddItemForm = (props: AddItemFormType) => {
             </IconButton>
         </div>
     )
-}
+})
