@@ -29,6 +29,7 @@ function App({demo = false}: PropsType) {
     const isInitialized = useSelector<AppRootStateType, boolean>(state => state.app.isInitialized)
     const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
     const dispatch = useDispatch()
+
     useEffect(() => {
         dispatch(initializeAppTC())
     }, [])
