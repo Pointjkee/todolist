@@ -24,19 +24,18 @@ type PropsType = {
 }
 
 function App({demo = false}: PropsType) {
-    const status = useSelector<AppRootStateType, RequestStatusType>((state) => state.app.status)
+
+    const status = useSelector<AppRootStateType, string>((state) => state.app.status)
     const isInitialized = useSelector<AppRootStateType, boolean>(state => state.app.isInitialized)
     const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
     const dispatch = useDispatch()
     useEffect(() => {
-        debugger
         dispatch(initializeAppTC())
     }, [])
     const logOutHandler = () => {
         dispatch(logoutTC())
     }
     if (!isInitialized) {
-        debugger
         return <div
             style={{position: 'fixed', top: '30%', textAlign: 'center', width: '100%'}}>
             <CircularProgress/>
@@ -71,5 +70,3 @@ function App({demo = false}: PropsType) {
 }
 
 export default App
-// <TodolistsList demo={demo}/>
-// <Login />
